@@ -11,6 +11,10 @@ jQuery( document ).ready( function(){
 				}
 
 				return query;
+			},
+			processResults: function (data) {
+				console.log( data );
+				return data;
 			}
 		}
 	} );

@@ -43,7 +43,7 @@ class Options {
 			array( $this, 'font_select_control' ),
 			'gfont_admin_settings',
 			'font_select'
-		);      
+		);
 	}
 
 	/**
@@ -76,7 +76,16 @@ class Options {
 
 	public function font_select_control() { 
 	?>
-		<select class="font_select" name="google_font_list[]" multiple="multiple">
+		<select class="font_select" name="google_fonts[]" multiple="multiple">
+			<?php 
+			if( is_array( $this->options ) ) : 
+				foreach( $this->options as $opt ) : 
+			?>
+					<option value="<?php echo esc_attr( $opt ); ?>" selected><?php echo esc_html( $opt ); ?></option>
+			<?php 
+				endforeach;
+			endif;
+			?>
 		</select>
 	<?php 
 	}
