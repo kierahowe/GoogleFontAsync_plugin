@@ -1,0 +1,17 @@
+{
+  "name": "GFont",
+  "description": "WordPress Plugin To Add Async Google Fonts",
+  "keywords": ["wordpress", "plugin" ],
+  "authors": [
+    {
+      "name": "Kiera Howe",
+      "email": "kiera@wileysol.com",
+      "homepage": "https://kierahowe.com"
+    }
+  ],
+  "type": "wordpress-plugin",
+  "require": {
+    "php": ">=5.3.2",
+    "composer/installers": "v1.0.6"
+  }
+}
