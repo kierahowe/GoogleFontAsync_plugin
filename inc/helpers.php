@@ -26,12 +26,11 @@ function gfont_get_fonts( $search_term = '', $match = false ) {
 	}
 
 	if( empty( $search_term ) ) { return $fonts; }
-
 	$out = array();
 	foreach( $fonts as $font ) {
 		if( 
 			( $match && $font['family'] === $search_term ) || 
-			( !$match && stripos( $font['family'], $search_term ) )
+			( !$match && stripos( $font['family'], $search_term ) !== false )
 		) { 
 			$out[] = $font;
 		}

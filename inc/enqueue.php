@@ -2,12 +2,23 @@
 
 namespace GFonts\Enqueue;
 
+/**
+ * Class to enqueue the scripts and css
+ */
 class Enqueue { 
+
+	/**
+	 * Constructor
+	 */
 	public function __construct() { 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue' ) );
 	}
 
+	/**
+	 * Enqueues scripts and CSS for use in the admin area
+	 * @return void
+	 */
 	public function admin_enqueue() {
 		$screen = get_current_screen();
 		if( $screen->id === 'settings_page_gfont_settings' ) { 
@@ -19,6 +30,10 @@ class Enqueue {
    		}
 	}
 
+	/**
+	 * Enqueues scripts and CSS for use in the main pages
+	 * @return void
+	 */
 	public function enqueue() {
 		$fonts = get_option( 'google_fonts' );
 
@@ -36,4 +51,5 @@ class Enqueue {
 	}
 }
 
+// Initiate enqueue
 new Enqueue();

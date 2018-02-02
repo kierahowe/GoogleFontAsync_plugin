@@ -2,12 +2,22 @@
 
 namespace GFonts\Options;
 
-class Options { 
+/**
+ * Class for the options page
+ */
+class Options {
+
+	/**
+	 * Construct class
+	 */
 	function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
 		add_action( 'admin_init', array( $this, 'page_init' ) );
 	}
 
+	/**
+	 * Adds the option page
+	 */
 	public function add_plugin_page() {
 		// This page will be under "Settings"
 		add_options_page(
@@ -48,7 +58,7 @@ class Options {
 
 	/**
 	 * Ouput the admin options page
-	 * @return [type] [description]
+	 * @return void
 	 */
 	public function options_page()
 	{
@@ -69,11 +79,19 @@ class Options {
 		<?php
 	}
 
+	/**
+	 * Output the section - which is nothing right now, but perhaps a title if needed
+	 * @return void
+	 */
 	public function output_section() { 
 	?>
 	<?php 
 	}
 
+	/**
+	 * Output the control for selecting the fonts
+	 * @return void
+	 */
 	public function font_select_control() { 
 	?>
 		<select class="font_select" name="google_fonts[]" multiple="multiple">
@@ -91,4 +109,5 @@ class Options {
 	}
 }
 
+// Initiate Options
 new Options();
